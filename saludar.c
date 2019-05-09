@@ -2,5 +2,7 @@
 
 void saludar(int nro)
 {
-  printf("Hola %d", nro);
+  int pepe;
+  int maria;
+  printf("Hola putooo %d", nro);
 }
