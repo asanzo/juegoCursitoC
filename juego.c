@@ -1,34 +1,37 @@
 #include <stdio.h>
-
-// int main(void)
-// {
-//   int cantAlumnos;
-//   cantAlumnos = 26;
-//   int *dir;
-//   dir = &cantAlumnos;
-//   printf("Valor:%d.\nPuntero:%p.\nValorDesdePuntero:%d.\n", cantAlumnos, dir, *dir);
-// }
-
-//#include "saludar.h"
-// int main(void)
-// {
-//   int fafafa;
-//   fafafa = 3;
-//   saludar(fafafa);
-//   fafafa = 5;
-// }
-
-#define String char *
+#include <string.h>
 
 void printArray(char *, int);
+
 void main()
 {
-  char pepe;
-  String mensaje = "holaq\0etal";
-  mensaje = "puto";
-  //*mensaje = 'p';
+  char letra;
+  letra = 'a';
+
+  char otroMensaje[10];
+
+  char *mensaje;
+  char *miHol = "hol";
+
+  // otroMensaje[0] = 'h';
+  // otroMensaje[1] = 'o';
+  // otroMensaje[2] = 'l';
+  // otroMensaje[3] = '\0';
+  // Estas cuatro lineas anteriores hacen lo mismo q el strcpy
+  strcpy(otroMensaje, miHol);
+
+  // miHol[1] = 'A'; Segmentation fault
+
+  mensaje = otroMensaje;
+  //otroMensaje = mensaje; lvalue not modifiable
+
+  otroMensaje[1] = 'Z';
+  mensaje[2] = 'J';
+  mensaje[3] = 'F';
+
+  printf("%s\n", otroMensaje);
   printf("%s\n", mensaje);
-  printArray(mensaje, 55);
+  printArray(mensaje, 10);
 }
 
 void printArray(char *pepe, int largo)
@@ -47,6 +50,24 @@ typedef struct
   char *nombre;
 } alumno;
 void aprobarMateria(alumno *);
+
+// int main(void)
+// {
+//   int cantAlumnos;
+//   cantAlumnos = 26;
+//   int *dir;
+//   dir = &cantAlumnos;
+//   printf("Valor:%d.\nPuntero:%p.\nValorDesdePuntero:%d.\n", cantAlumnos, dir, *dir);
+// }
+
+//#include "saludar.h"
+// int main(void)
+// {
+//   int fafafa;
+//   fafafa = 3;
+//   saludar(fafafa);
+//   fafafa = 5;
+// }
 
 // void main(int cant, char *argv[])
 // {
